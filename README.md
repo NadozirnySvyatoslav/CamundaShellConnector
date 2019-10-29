@@ -24,7 +24,7 @@ Line "Discovered provider for connector id 'shell' and class 'com.ktc.camunda.Sh
 ## Test connector
 
 1.  Deploy BPMN, might be used from demo/demo.bpmn
-![BPMN process](/demo/demo_bpmn.png)
+![BPMN process](/demo/demo.png)
 
 2. Start process from Camunda Tasklist
 3. Look to the logs
@@ -61,11 +61,11 @@ lrwxrwxrwx  1 tomcat tomcat   19 Sep 11 22:47 work -> ../../cache/tomcat9
 ## Connector configuration
 
 Input:
-cmd - command line to execute (mandatory)
-input - input buffer to send to the command line
-dir - directory to start command
+* cmd - command line to execute (mandatory)
+* input - input buffer to send to the command line
+* dir - directory to start command
 
 Output:
-output - output buffer from command execution
-code - execution exit status code
-error - error buffer from command execution
+* output - output buffer from command execution
+* code - execution exit status code
+* error - error buffer from command execution
