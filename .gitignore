@@ -1,0 +1,5 @@
+/run.sh
+/run_receiver.sh
+/target/*
+!/target/rabbitmq-connector-1.0-SNAPSHOT.jar
+!/target/rabbitmq-connector-1.0.jar
