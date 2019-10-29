@@ -57,3 +57,15 @@ lrwxrwxrwx  1 tomcat tomcat   19 Sep 11 22:47 work -> ../../cache/tomcat9
 
 
 ```
+
+## Connector configuration
+
+Input:
+cmd - command line to execute (mandatory)
+input - input buffer to send to the command line
+dir - directory to start command
+
+Output:
+output - output buffer from command execution
+code - execution exit status code
+error - error buffer from command execution
