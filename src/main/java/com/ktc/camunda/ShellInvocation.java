@@ -28,11 +28,16 @@ public class ShellInvocation extends AbstractRequestInvocation<ShellRequest> {
 
       try {
 	Process process;
+	String[] cmd={
+	    "/bin/sh",
+	    "-c",
+	    request.getCmdLine()
+	};
 	if (request.getDir()!=null && request.getDir()!=""){
-    	    process = Runtime.getRuntime().exec(request.getCmdLine(),null,new File(request.getDir()));
+    	    process = Runtime.getRuntime().exec(cmd,null,new File(request.getDir()));
 	    }
 	else
-    	    process = Runtime.getRuntime().exec(request.getCmdLine());
+    	    process = Runtime.getRuntime().exec(cmd);
 
 	if (request.getInput()!=null){
     	    process.getOutputStream().write(request.getInput().getBytes());
@@ -53,7 +58,11 @@ public class ShellInvocation extends AbstractRequestInvocation<ShellRequest> {
 	}
 
 	int code = process.waitFor();
-        LOGGER.debug(" [x] Shell execute '{}'", request.getCmdLine());
+	if (code==0)
+            LOGGER.debug(" [x] Shell returns: "+code+" '{}'", output);
+	else
+    	    LOGGER.debug(" [x] Shell returns: "+code+" '{}'", error);
+
         return new ShellResponse(output.toString(),error.toString(),code);
 
       } catch (Exception ex) {
